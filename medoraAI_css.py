@@ -89,18 +89,18 @@ html, body, [class*="css"] {
     50%      { background-size: 54px 54px, 54px 54px, 100% 100%, 100% 100%; }
 }
 
-/* Scan line */
-.stApp::after {
-    content: '';
-    position: fixed;
-    top: -2px; left: 0; right: 0; height: 2px;
-    background: linear-gradient(90deg, transparent, var(--cyan), transparent);
-    animation: scanline 6s linear infinite;
-    pointer-events: none;
-    z-index: 9999;
-    opacity: .5;
-}
-@keyframes scanline { 0% { top: -2px; } 100% { top: 100vh; } }
+# /* Scan line */
+# .stApp::after {
+#     content: '';
+#     position: fixed;
+#     top: -2px; left: 0; right: 0; height: 2px;
+#     background: linear-gradient(90deg, transparent, var(--cyan), transparent);
+#     animation: scanline 6s linear infinite;
+#     pointer-events: none;
+#     z-index: 9999;
+#     opacity: .5;
+# }
+# @keyframes scanline { 0% { top: -2px; } 100% { top: 100vh; } }
 
 /* ══════════════════════════════════════════════════════
    SCROLLBAR
