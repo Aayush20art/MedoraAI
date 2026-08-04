@@ -327,7 +327,7 @@ with st.sidebar:
         "🩸  Diabetes",
         "🏨  ICU Readmission",
         "📄  Medical NLP",
-        "⚕️  PDF Assistant",
+        "⚕️  Medical Report Assistant",
         "📋  Patient History",
     ], label_visibility="collapsed")
 
