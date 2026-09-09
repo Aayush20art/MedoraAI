@@ -1,5 +1,5 @@
 # Medora AI 💊
-### Smart Healthcare Prediction System (MedoraAI)
+### Smart HelathCare Prediction System
 
 🚀 **Live Demo:**  
 https://medoraai-f9jvenhgazbhd9zaugcmbb.streamlit.app/
