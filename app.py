@@ -119,6 +119,7 @@ def ask_groq(query: str, context: str, model: str, history: list) -> str:
     )
     return response.choices[0].message.content
 
+
 # ─── SHAP ──────────────────────────────────────────────────────────────────────
 def get_shap_values(model, scaler, input_df):
     try:
@@ -214,9 +215,10 @@ def plot_shap_bar(feature_names, shap_vals, title):
 
     return fig
 
+
 # ─── GAUGE (RED THEME) ─────────────────────────────────────────────────────────
 def render_gauge(prob):
-    pct   = round(prob * 100, 1)
+    pct  = round(prob * 100, 1)
     angle = -180 + prob * 180
     rad   = (angle - 90) * 3.14159 / 180
     cx, cy, r = 130, 108, 80
@@ -355,7 +357,7 @@ with st.sidebar:
 # ══════════════════════════════════════════════════════════════════════════════
 # GLOBAL HEADER
 # ══════════════════════════════════════════════════════════════════════════════
-module_name = module.split("  ")[-1]
+module_name = module.split("  ")[-1].strip()
 now_str     = datetime.datetime.now().strftime("%d %b %Y · %H:%M")
 
 st.markdown(f"""
@@ -589,7 +591,7 @@ elif "ICU" in module:
 # ══════════════════════════════════════════════════════════════════════════════
 # MODULE 4 — NLP
 # ══════════════════════════════════════════════════════════════════════════════
-elif "NLP" in module:
+elif "Medical NLP" in module:
     SAMPLE = """Patient is a 58-year-old male presenting with chest pain and shortness of breath.
 History of hypertension and diabetes. Current medications include metformin, aspirin, and lisinopril.
 Blood pressure: 148/92 mmHg. Heart rate: 96 bpm. SpO2: 94%. Cholesterol: 280 mg/dL.
@@ -613,7 +615,7 @@ Patient reports fatigue, palpitations, and edema in lower extremities for the pa
             c3.metric("Entities Found", str(total))
             st.markdown(render_gauge(prob), unsafe_allow_html=True)
 
-            cls  = "banner-danger" if risk > 60 else "banner-warn" if risk > 30 else "banner-ok"
+            cls   = "banner-danger" if risk > 60 else "banner-warn" if risk > 30 else "banner-ok"
             icon = "⚠️" if risk > 60 else "⚡" if risk > 30 else "✓"
             hdr  = "Elevated Clinical Risk" if risk > 60 else "Moderate Risk Profile" if risk > 30 else "Low Risk Profile"
             msg  = "Multiple disease indicators found. Immediate evaluation recommended." if risk > 60 else "Monitor closely. Follow-up within 48–72 hours." if risk > 30 else "Minimal clinical indicators. Routine monitoring advised."
@@ -645,9 +647,9 @@ Patient reports fatigue, palpitations, and edema in lower extremities for the pa
 
 
 # ══════════════════════════════════════════════════════════════════════════════
-# MODULE 5 — PDF ASSISTANT (RAG)
+# MODULE 5 — MEDICAL REPORT ASSISTANT (RAG)
 # ══════════════════════════════════════════════════════════════════════════════
-elif "PDF" in module:
+elif "Medical Report Assistant" in module:
     st.markdown(f"""<div class='model-bar'>
         ⚕️ &nbsp;<strong>Medical Assistant</strong>
         <span class='mbar-sep'>·</span> Engine <strong>Groq LLM</strong>
@@ -685,7 +687,7 @@ elif "PDF" in module:
 
         with c2:
             st.markdown("<div class='sec-card'><div class='sec-title'>Model Settings</div>", unsafe_allow_html=True)
-            groq_model = st.selectbox("LLM Model", ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "mixtral-8x7b-32768", "gemma2-9b-it"])
+            groq_model = st.selectbox("LLM Model", ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "gemma2-9b-it"])
             top_k = st.slider("Context Chunks (K)", 2, 8, 4)
             st.markdown("</div>", unsafe_allow_html=True)
 
