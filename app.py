@@ -687,7 +687,10 @@ elif "Medical Report Assistant" in module:
 
         with c2:
             st.markdown("<div class='sec-card'><div class='sec-title'>Model Settings</div>", unsafe_allow_html=True)
-            groq_model = st.selectbox("LLM Model", ["llama-3.3-70b-versatile", "llama-3.1-8b-instant", "gemma2-9b-it"])
+            groq_model = st.selectbox("LLM Model", [
+                "openai/gpt-oss-20b",
+                "openai/gpt-oss-120b"
+            ])
             top_k = st.slider("Context Chunks (K)", 2, 8, 4)
             st.markdown("</div>", unsafe_allow_html=True)
 
