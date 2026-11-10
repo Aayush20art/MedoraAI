@@ -10,7 +10,7 @@ with this constant. Call it once at the top after set_page_config():
 Font stack  : Syne (display) + DM Sans (body) + JetBrains Mono (mono)
 Palette     : Deep ink bg · Electric cyan primary · Violet secondary · Rose accent
 Animations  : Infinite gradient bar, scan line, card lifts, button pulses,
-              gauge glow, chat bubble reveals, scrollbar style, hover shimmers
+              gauge glow, chat bubble reveals, scrollbar style, hover simmers
 """
 
 CSS = """
